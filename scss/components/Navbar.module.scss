@@ -1,27 +1,41 @@
-.navbarContainer {
-  width: 100vw;
+.navbar {
   position: absolute;
   top: 0;
   left: 0;
-  padding: 2.5rem 6rem;
+  right: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 2;
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
-.brand {
-  &:hover {
-    text-decoration: underline;
-  }
-  font-size: 3rem;
-  text-decoration: none;
+.logo {
+  font-family: 'Arial', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
 }
 
-.link {
-  &:hover {
-    text-decoration: underline;
+.navLinks {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    margin-left: 20px;
+
+    a {
+      font-family: 'Arial', sans-serif;
+      font-size: 14px;
+      color: white;
+      text-decoration: none;
+      text-transform: uppercase;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
-  font-size: 1.5rem;
-  text-decoration: none;
 }
