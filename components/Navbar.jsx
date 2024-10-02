@@ -1,6 +1,7 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
-
 import styles from '@/scss/components/Navbar.module.scss';
 
 const Navbar = () => {
@@ -8,10 +9,9 @@ const Navbar = () => {
         <nav className={styles.navbar}>
             <div className={styles.logo}>Fourier Foreseers</div>
             <ul className={styles.navLinks}>
-                <li><a href="#home">HOME</a></li>
+                <li><Link href="/">HOME</Link></li>
                 <li><Link href="/mission">MISSION</Link></li>
-                <li><a href="#team">TEAM</a></li>
-                <li><a href="#contact">CONTACT</a></li>
+                <li><Link href="/team">TEAM</Link></li>
             </ul>
         </nav>
     );
