@@ -6,7 +6,7 @@ import { useDataContext } from '@/hooks/useDataContext';
 const Moon = () => {
   const { heightMap } = useDataContext();
   const moonTexture = useLoader(TextureLoader, '/assets/moon.jpg');
-  const heightMapTexture = useLoader(TextureLoader, '/assets/height.jpg');
+  const heightMapTexture = useLoader(TextureLoader, '/assets/height-moon.jpg');
 
   return (
     <>
