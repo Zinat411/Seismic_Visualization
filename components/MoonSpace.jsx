@@ -17,6 +17,7 @@ import Legend from './Legend';
 import Places from './Places';
 import styles from '@/scss/components/Space.module.scss';
 import Timeline from './Timeline';
+import Sonification from './Sonification'; // Import the new Sonification component
 
 const MoonSpace = () => {
   const [QuakeData, setQuakeData] = useState();
@@ -90,6 +91,7 @@ const MoonSpace = () => {
         </Canvas>
         <Menu />
         <Timeline QuakeData={QuakeData} />
+        <Sonification /> {/* Add the Sonification component here */}
       </div>
       <QuakeInfo />
       {heightMap && <Legend />}

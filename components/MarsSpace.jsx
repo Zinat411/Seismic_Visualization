@@ -20,7 +20,7 @@ import Sonification from './Sonification'; // Import the new Sonification compon
 
 const MarsSpace = () => {
     const [QuakeData, setQuakeData] = useState();
-    const { places, placesLocation, camera, ambientLightIntensity, directionalLightIntensity, landerLocation, apolloLanders, quake, heightMap } =
+    const { places, placesLocation, camera, landerLocation, apolloLanders, quake, heightMap } =
         useDataContext();
 
     useEffect(() => {
@@ -59,8 +59,10 @@ const MarsSpace = () => {
                     />
                     <Environment />
                     <Mars />
+                    <Sun />
                     <Wireframe />
                     <AxesHelper />
+                    <Sun />
                     {apolloLanders &&
                         landerLocation.map((lander, index) => (
                             <Lander

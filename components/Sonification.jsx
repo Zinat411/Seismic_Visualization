@@ -8,13 +8,13 @@ const Sonification = () => {
     const gainNodeRef = useRef(null);
 
     useEffect(() => {
-        if (sonification && quake) {
-            if (!audioContextRef.current) {
-                audioContextRef.current = new (window.AudioContext || window.webkitAudioContext)();
-            }
+        if (!audioContextRef.current) {
+            audioContextRef.current = new (window.AudioContext || window.webkitAudioContext)();
+        }
 
-            const audioContext = audioContextRef.current;
+        const audioContext = audioContextRef.current;
 
+        const setupSound = () => {
             // Clean up the previous sound if there's any
             if (oscillatorRef.current) {
                 oscillatorRef.current.stop();
@@ -24,12 +24,22 @@ const Sonification = () => {
             const oscillator = audioContext.createOscillator();
             const gainNode = audioContext.createGain();
 
-            // Set oscillator frequency based on quake magnitude
-            oscillator.type = 'sine';
-            oscillator.frequency.setValueAtTime(quake.magnitude * 100, audioContext.currentTime);
+            // Create a custom waveform for a more piano-like sound
+            const real = new Float32Array([0, 0.4, 0.4, 1, 0.3, 0.2, 0.1]);
+            const imag = new Float32Array(real.length);
+            const customWave = audioContext.createPeriodicWave(real, imag);
 
-            // Adjust gain for a louder, more continuous sound
-            gainNode.gain.setValueAtTime(0.5, audioContext.currentTime); // You can tweak this value for volume
+            oscillator.setPeriodicWave(customWave);
+
+            // Set oscillator frequency based on quake magnitude
+            const baseFrequency = 261.6; // C4 note
+            const frequency = baseFrequency * Math.pow(2, quake.magnitude / 12);
+            oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
+
+            // Create an envelope for the piano-like sound
+            gainNode.gain.setValueAtTime(0, audioContext.currentTime);
+            gainNode.gain.linearRampToValueAtTime(0.5, audioContext.currentTime + 0.01);
+            gainNode.gain.exponentialRampToValueAtTime(0.1, audioContext.currentTime + 1.5);
 
             oscillator.connect(gainNode);
             gainNode.connect(audioContext.destination);
@@ -37,13 +47,20 @@ const Sonification = () => {
             oscillator.start();
             oscillatorRef.current = oscillator;
             gainNodeRef.current = gainNode;
+        };
 
+        if (sonification && quake) {
+            setupSound();
         } else {
             // Stop the sound if sonification is disabled
             if (oscillatorRef.current) {
                 oscillatorRef.current.stop();
                 oscillatorRef.current.disconnect();
                 oscillatorRef.current = null;
+            }
+            if (gainNodeRef.current) {
+                gainNodeRef.current.disconnect();
+                gainNodeRef.current = null;
             }
         }
 
@@ -53,6 +70,10 @@ const Sonification = () => {
                 oscillatorRef.current.stop();
                 oscillatorRef.current.disconnect();
                 oscillatorRef.current = null;
+            }
+            if (gainNodeRef.current) {
+                gainNodeRef.current.disconnect();
+                gainNodeRef.current = null;
             }
         };
     }, [quake, sonification]); // Listen to changes in quake and sonification
