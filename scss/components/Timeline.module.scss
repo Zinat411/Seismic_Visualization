@@ -1,7 +1,20 @@
-.timelineContainer {
+.timelineWrapper {
   position: absolute;
-  top: 39rem;
+  top: 42rem;
   left: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 10;
+}
+
+.timelineGuidance {
+  color: #fff;
+  font-size: 1.35rem;
+  margin-bottom: 0.5rem;
+}
+
+.timelineContainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,6 +40,9 @@
   margin: 0.2rem;
   border: none;
   border-radius: 0.5rem;
+  background: #fff;
+  color: #000;
+  cursor: pointer;
   @-moz-document url-prefix() {
     padding: 0.5rem 1rem;
   }

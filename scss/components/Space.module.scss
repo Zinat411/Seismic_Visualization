@@ -20,3 +20,15 @@
   font-size: 1.25rem;
   z-index: 1;
 }
+
+.legend {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2;
+
+  img {
+    max-width: 200px;
+    height: auto;
+  }
+}

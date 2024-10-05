@@ -1,22 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
-  font-family: 'Victor Mono';
+  font-family: 'Open Sans';
   font-weight: 600;
   font-display: swap;
-  src: url(/fonts/VictorMono-Regular.woff2) format('woff2');
+  src: url(/fonts/OpenSans-Bold.woff2) format('woff2');
 }
 
 @font-face {
-  font-family: 'Victor Mono';
+  font-family: 'Open Sans';
   font-weight: 600;
   font-display: swap;
-  src: url(/fonts/VictorMono-SemiBold.woff2) format('woff2');
+  src: url(/fonts/OpenSans-Bold.woff2) format('woff2');
 }
 
 @font-face {
-  font-family: 'Victor Mono';
+  font-family: 'Open Sans';
   font-weight: 700;
   font-display: swap;
-  src: url(/fonts/VictorMono-Bold.woff2) format('woff2');
+  src: url(/fonts/OpenSans-Bold.woff2) format('woff2');
 }
 
 *,

@@ -1,43 +1,49 @@
-.heroContainer {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  z-index: 1;
+.hero {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  // background-color: rgba($color: #000000, $alpha: 0.3);
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  width: 100%;
+  z-index: 10;
 }
 
 .title {
-  &__primary {
-    font-size: 4rem;
-  }
-
-  &__secondary {
-    font-size: 1.8rem;
-    font-weight: 200;
-  }
-
-  margin: 1rem;
-  text-align: center;
+  font-family: 'Lucida Sans', sans-serif;
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0 0 40px 0;
+  line-height: 1;
 }
 
-.links {
-  &__link {
-    &:hover {
-      text-decoration: underline;
-    }
-    text-decoration: none;
-    margin: 1rem 0.2rem;
-  }
+.description {
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+  margin-top: 20px;
+}
 
-  font-size: 2rem;
+.buttonContainer {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 2rem;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.missionButton {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 12px 24px;
+  font-family: 'Courier New', monospace;
+  font-size: 18px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: white;
+    color: black;
+  }
 }

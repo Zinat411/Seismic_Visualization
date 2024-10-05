@@ -1,8 +1,8 @@
 import '@/scss/global.scss';
 
 export const metadata = {
-  title: 'Moonquake Visualized',
-  description: 'Visualized the quakes during the Apollo Missions.',
+  title: 'Seismic Quakes Visualization',
+  description: 'Visualized the quakes on Mars and the Moon.',
   icons: {
     icon: '/favicon.ico',
     apple: '/logo96.png',

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useDataContext } from '@/hooks/useDataContext';
 import styles from '@/scss/components/Menu.module.scss';
 
@@ -17,97 +18,116 @@ const Menu = () => {
     setDirectionalLightIntensity,
     ambientLightIntensity,
     setAmbientLightIntensity,
+    setSonification,
   } = useDataContext();
+
+  const [sonificationEnabled, setSonificationEnabled] = useState(false);
+
+  const handleSonificationToggle = () => {
+    setSonificationEnabled(!sonificationEnabled);
+    setSonification(!sonificationEnabled);
+  };
 
   return (
     <div className={styles.menuContainer}>
       <table className={styles.table}>
         <tbody>
-          <tr>
-            <td className={styles.info}>
-              <span>World Axes</span>
-              <br />
-              &emsp;x-axis : <span className={styles.orange}>orange</span>
-              <br />
-              &emsp;y-axis : <span className={styles.green}>green</span>
-              <br />
-              &emsp;z-axis : <span className={styles.blue}>blue</span>
-            </td>
-            <td>
-              <button
+        <tr>
+          <td className={styles.info}>
+            <span>World Axes</span>
+            <br/>
+            &emsp;x-axis : <span className={styles.orange}>orange</span>
+            <br/>
+            &emsp;y-axis : <span className={styles.green}>green</span>
+            <br/>
+            &emsp;z-axis : <span className={styles.blue}>blue</span>
+          </td>
+          <td>
+            <button
                 className={styles.button}
                 onClick={() => {
                   setAxes(axes === 0 ? 10 : 0);
                 }}
                 data-testid='axes-button'
-              >
-                {axes === 0 ? 'Off' : 'On'}
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td className={styles.info}>Latitude & Longitude</td>
-            <td>
-              <button
+            >
+              {axes === 0 ? 'Off' : 'On'}
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td className={styles.info}>Latitude & Longitude</td>
+          <td>
+            <button
                 className={styles.button}
                 onClick={() => {
                   setWireframe(!wireframe);
                 }}
-              >
-                {wireframe === true ? 'On' : 'Off'}
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td className={styles.info}>Height Map</td>
-            <td>
-              <button
+            >
+              {wireframe === true ? 'On' : 'Off'}
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td className={styles.info}>Height Map</td>
+          <td>
+            <button
                 className={styles.button}
                 onClick={() => {
                   setHeightMap(!heightMap);
                 }}
-              >
-                {heightMap === true ? 'On' : 'Off'}
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td className={styles.info}>Apollo Landers</td>
-            <td>
-              <button
+            >
+              {heightMap === true ? 'On' : 'Off'}
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td className={styles.info}>Apollo Landers</td>
+          <td>
+            <button
                 className={styles.button}
                 onClick={() => {
                   setApolloLanders(!apolloLanders);
                 }}
-              >
-                {apolloLanders === true ? 'On' : 'Off'}
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td className={styles.info}>Seas & Oceans</td>
-            <td>
-              <button
+            >
+              {apolloLanders === true ? 'On' : 'Off'}
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td className={styles.info}>Seas & Oceans</td>
+          <td>
+            <button
                 className={styles.button}
                 onClick={() => {
                   setPlaces(!places);
                 }}
-              >
-                {places === true ? 'On' : 'Off'}
-              </button>
-            </td>
-          </tr>
+            >
+              {places === true ? 'On' : 'Off'}
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td className={styles.info}>Sonification</td>
+          <td>
+            <button
+                className={styles.button}
+                onClick={handleSonificationToggle}
+            >
+              {sonificationEnabled ? 'On' : 'Off'}
+            </button>
+          </td>
+        </tr>
         </tbody>
       </table>
       <table className={styles.table__slider}>
         <tbody>
-          <tr>
-            <td className={styles.info}>
-              <div className={styles.data}>
-                Directional Light Intensity
-                <span>{directionalLightIntensity}</span>
-              </div>
-              <input
+        <tr>
+          <td className={styles.info}>
+            <div className={styles.data}>
+              Directional Light Intensity
+              <span>{directionalLightIntensity}</span>
+            </div>
+            <input
                 type='range'
                 min={0}
                 max={400}
