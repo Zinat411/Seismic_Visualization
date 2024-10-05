@@ -10,7 +10,7 @@ const teamMembers = [
         name: 'Matheus Santos Melo',
         role: 'Team Leader',
         image: '',
-        linkedin: ''
+        linkedin: 'https://www.linkedin.com/in/matheus-santos-melo/'
     },
     {
         name: 'Zinat Abo Hgool',
@@ -33,14 +33,14 @@ const teamMembers = [
     {
         name: 'Marcin Gajewski',
         role: 'Feature Engineering',
-        image: '',
-        linkedin: ''
+        image: '/assets/Marcin.jpg',
+        linkedin: 'https://www.linkedin.com/in/marcin-gajewski-16824218a/'
     },
     {
-        name: 'Carolina',
+        name: 'Carolina Carpio',
         role: 'Web Developer',
-        image: '',
-        linkedin: ''
+        image: '/assets/Carolina.jpg',
+        linkedin: 'https://www.linkedin.com/in/carolinacarpio/'
     }
 ];
 
