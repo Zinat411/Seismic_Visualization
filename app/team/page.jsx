@@ -9,7 +9,7 @@ const teamMembers = [
     {
         name: 'Matheus Santos Melo',
         role: 'Team Leader',
-        image: '',
+        image: '/assets/Matheus.jpg',
         linkedin: 'https://www.linkedin.com/in/matheus-santos-melo/'
     },
     {
@@ -21,8 +21,8 @@ const teamMembers = [
     {
         name: 'Gustavo Korzune Gurgel',
         role: 'Deep Learning Specialist',
-        image: '',
-        linkedin: ''
+        image: '/assets/Gustavo.jpg',
+        linkedin: 'https://www.linkedin.com/in/gustavo-korzune-gurgel-4b996a1a5/'
     },
     {
         name: 'Ana Yoon Faria de Lima',
